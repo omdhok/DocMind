@@ -1,0 +1,119 @@
+<svg viewBox="0 0 900 1350" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4A5568"/>
+    </marker>
+  </defs>
+  <rect width="900" height="1350" fill="#0F172A"/>
+
+  <text x="450" y="50" text-anchor="middle" font-size="30" font-weight="700" fill="#F8FAFC">DocMind</text>
+  <text x="450" y="78" text-anchor="middle" font-size="15" fill="#94A3B8">Private On-Device Document Intelligence — Architecture</text>
+
+  <!-- Upload -->
+  <rect x="300" y="110" width="300" height="50" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <text x="450" y="141" text-anchor="middle" font-size="15" fill="#E2E8F0">Document Upload (Streamlit UI)</text>
+  <line x1="450" y1="160" x2="450" y2="190" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Ingestion -->
+  <rect x="240" y="190" width="420" height="50" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <text x="450" y="221" text-anchor="middle" font-size="15" fill="#E2E8F0">PDF / DOCX / TXT Extraction  (pypdf, python-docx)</text>
+  <line x1="450" y1="240" x2="450" y2="270" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Cleaning/Chunking -->
+  <rect x="240" y="270" width="420" height="50" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <text x="450" y="301" text-anchor="middle" font-size="15" fill="#E2E8F0">Text Cleaning → Chunking (overlap + page/section IDs)</text>
+  <line x1="450" y1="320" x2="450" y2="350" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Embeddings -->
+  <rect x="240" y="350" width="420" height="50" rx="10" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+  <text x="450" y="381" text-anchor="middle" font-size="15" fill="#E2E8F0">Local Embeddings — MiniLM → ONNX (ONNX Runtime)</text>
+  <line x1="450" y1="400" x2="450" y2="430" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Execution Provider layer -->
+  <rect x="150" y="430" width="600" height="46" rx="10" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+  <text x="450" y="459" text-anchor="middle" font-size="14" fill="#E2E8F0">Execution Provider Manager — runtime-detected, never assumed</text>
+
+  <line x1="450" y1="476" x2="450" y2="500" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="500" x2="670" y2="500" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="500" x2="230" y2="520" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="500" x2="450" y2="520" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="670" y1="500" x2="670" y2="520" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="140" y="520" width="180" height="54" rx="10" fill="#312E81" stroke="#818CF8" stroke-width="2"/>
+  <text x="230" y="544" text-anchor="middle" font-size="14" font-weight="700" fill="#E0E7FF">QNN</text>
+  <text x="230" y="562" text-anchor="middle" font-size="11" fill="#C7D2FE">Hexagon NPU (Snapdragon)</text>
+
+  <rect x="360" y="520" width="180" height="54" rx="10" fill="#1E3A5F" stroke="#38BDF8" stroke-width="2"/>
+  <text x="450" y="544" text-anchor="middle" font-size="14" font-weight="700" fill="#DBEAFE">DirectML</text>
+  <text x="450" y="562" text-anchor="middle" font-size="11" fill="#BFDBFE">GPU/NPU via DirectX</text>
+
+  <rect x="580" y="520" width="180" height="54" rx="10" fill="#334155" stroke="#94A3B8" stroke-width="2"/>
+  <text x="670" y="544" text-anchor="middle" font-size="14" font-weight="700" fill="#F1F5F9">CPU</text>
+  <text x="670" y="562" text-anchor="middle" font-size="11" fill="#CBD5E1">universal fallback</text>
+
+  <line x1="230" y1="574" x2="230" y2="600" stroke="#4A5568" stroke-width="2"/>
+  <line x1="450" y1="574" x2="450" y2="600" stroke="#4A5568" stroke-width="2"/>
+  <line x1="670" y1="574" x2="670" y2="600" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="600" x2="670" y2="600" stroke="#4A5568" stroke-width="2"/>
+  <line x1="450" y1="600" x2="450" y2="630" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Vector store -->
+  <rect x="240" y="630" width="420" height="50" rx="10" fill="#1E293B" stroke="#34D399" stroke-width="2"/>
+  <text x="450" y="661" text-anchor="middle" font-size="15" fill="#E2E8F0">Vector Store — FAISS (IndexFlatIP, in-memory)</text>
+  <line x1="450" y1="680" x2="450" y2="710" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- RAG retrieval -->
+  <rect x="240" y="710" width="420" height="50" rx="10" fill="#1E293B" stroke="#34D399" stroke-width="2"/>
+  <text x="450" y="741" text-anchor="middle" font-size="15" fill="#E2E8F0">RAG Retrieval — top-k + relevance filter + de-dup</text>
+  <line x1="450" y1="760" x2="450" y2="790" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Local LLM -->
+  <rect x="240" y="790" width="420" height="50" rx="10" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+  <text x="450" y="821" text-anchor="middle" font-size="15" fill="#E2E8F0">Local LLM — Llama-3.2-3B-Instruct (GGUF, llama.cpp)</text>
+  <line x1="450" y1="840" x2="450" y2="870" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- optional cloud branch -->
+  <rect x="700" y="790" width="170" height="50" rx="10" fill="#1E293B" stroke="#F87171" stroke-dasharray="5,4" stroke-width="2"/>
+  <text x="785" y="812" text-anchor="middle" font-size="12" fill="#FCA5A5">Optional:</text>
+  <text x="785" y="828" text-anchor="middle" font-size="12" fill="#FCA5A5">Cloud Comparison</text>
+  <line x1="660" y1="815" x2="700" y2="815" stroke="#F87171" stroke-width="2" stroke-dasharray="5,4"/>
+
+  <line x1="450" y1="870" x2="450" y2="900" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="900" x2="670" y2="900" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="900" x2="230" y2="920" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="900" x2="450" y2="920" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="670" y1="900" x2="670" y2="920" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="140" y="920" width="180" height="50" rx="10" fill="#1E293B" stroke="#F8FAFC" stroke-width="1.5"/>
+  <text x="230" y="950" text-anchor="middle" font-size="14" fill="#E2E8F0">Q&amp;A</text>
+
+  <rect x="360" y="920" width="180" height="50" rx="10" fill="#1E293B" stroke="#F8FAFC" stroke-width="1.5"/>
+  <text x="450" y="950" text-anchor="middle" font-size="14" fill="#E2E8F0">Summary (map-reduce)</text>
+
+  <rect x="580" y="920" width="180" height="50" rx="10" fill="#1E293B" stroke="#F8FAFC" stroke-width="1.5"/>
+  <text x="670" y="950" text-anchor="middle" font-size="14" fill="#E2E8F0">Insights</text>
+
+  <line x1="230" y1="970" x2="230" y2="1000" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="140" y="1000" width="180" height="46" rx="10" fill="#1E293B" stroke="#F8FAFC" stroke-width="1.5"/>
+  <text x="230" y="1028" text-anchor="middle" font-size="13" fill="#E2E8F0">Citations (page/section)</text>
+
+  <line x1="450" y1="970" x2="450" y2="1080" stroke="#4A5568" stroke-width="2"/>
+  <line x1="670" y1="970" x2="670" y2="1080" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="1046" x2="230" y2="1080" stroke="#4A5568" stroke-width="2"/>
+  <line x1="230" y1="1080" x2="670" y2="1080" stroke="#4A5568" stroke-width="2"/>
+  <line x1="450" y1="1080" x2="450" y2="1110" stroke="#4A5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="1110" width="400" height="54" rx="10" fill="#0EA5E9" stroke="#0EA5E9" stroke-width="2"/>
+  <text x="450" y="1134" text-anchor="middle" font-size="15" font-weight="700" fill="#0F172A">Streamlit UI</text>
+  <text x="450" y="1152" text-anchor="middle" font-size="11" fill="#0F172A">Ask · Summarize · Insights · Performance dashboard</text>
+
+  <!-- legend -->
+  <rect x="60" y="1200" width="780" height="120" rx="10" fill="#1E293B" stroke="#334155"/>
+  <text x="80" y="1225" font-size="13" font-weight="700" fill="#F1F5F9">Legend</text>
+  <circle cx="90" cy="1245" r="6" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+  <text x="105" y="1250" font-size="12" fill="#CBD5E1">Implemented &amp; verified (runs on any machine)</text>
+  <circle cx="90" cy="1268" r="6" fill="#312E81" stroke="#818CF8" stroke-width="2"/>
+  <text x="105" y="1273" font-size="12" fill="#CBD5E1">Implemented, hardware-dependent (active only with QNN SDK on Snapdragon)</text>
+  <circle cx="90" cy="1291" r="6" fill="#1E293B" stroke="#F87171" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="105" y="1296" font-size="12" fill="#CBD5E1">Optional, never default (Cloud Comparison Mode)</text>
+</svg>

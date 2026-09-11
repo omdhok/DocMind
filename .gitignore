@@ -1,0 +1,26 @@
+# Models (large binary files -- never commit these)
+models/*.onnx
+models/*.gguf
+models/minilm-onnx/
+!models/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Environment / secrets
+.env
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Benchmark output (regenerate, don't commit stale numbers)
+scripts/benchmark_results.json

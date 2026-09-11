@@ -1,0 +1,36 @@
+# DocMind -- runtime dependencies for the full application.
+#
+# Notes:
+# - torch/transformers are NOT listed here -- they are only needed once,
+#   by scripts/export_embeddings.py, to convert the embedding model to
+#   ONNX. The running app never imports torch.
+# - llama-cpp-python can take a while to build from source on some
+#   systems (it compiles a C++ project). See README.md "Common Errors"
+#   for the prebuilt-wheel fallback if `pip install` is slow or fails.
+
+pypdf>=4.0.0
+python-docx>=1.1.0
+onnxruntime>=1.17.0
+tokenizers>=0.15.0
+faiss-cpu>=1.8.0
+numpy>=1.24.0
+llama-cpp-python>=0.2.60
+streamlit>=1.32.0
+groq>=0.4.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+pytest>=8.0.0
+
+# 'onnx' (NOT 'onnxruntime', which is listed above) is a lightweight
+# graph-format/protobuf library used only by tests/test_embeddings.py to
+# build a small synthetic ONNX model on the fly, and by
+# scripts/export_embeddings.py's self-verification step. It does NOT
+# pull in torch. It is listed here (unlike torch/transformers) because
+# tests/test_embeddings.py imports it unconditionally, not behind an
+# importorskip -- without it, `pytest -q` fails at collection instead of
+# skipping cleanly.
+onnx>=1.15.0
+
+# --- Optional, Windows-on-Snapdragon only (NOT installable on this dev
+#     machine's OS unless it is actually Windows on Snapdragon) ---
+# onnxruntime-qnn      # enables QNNExecutionProvider (Hexagon NPU)
